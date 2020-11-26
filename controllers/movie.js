@@ -21,7 +21,7 @@ var controller = {
         var movie = new Movie();
 
         var params = req.body;
-        movie.title = params.name;
+        movie.title = params.title;
         movie.description = params.description;
         movie.duration = params.duration;
         movie.category = params.category;

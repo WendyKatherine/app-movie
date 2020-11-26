@@ -65,6 +65,17 @@ var controller = {
         });
     },
 
+    getMoviesTerror: function(req,res){
+        //en el metodo find, se puede hacer filros como {year: 2019}
+        Movie.find({category:terror}).sort('-releasedate').exec((err, movies) => {
+            if(err) return res.status(500).send({message: "Could not return movie"});
+
+            if(!movies) return res.status(404).send({message: "No movies to show"});
+
+            return res.status(200).send({movies});
+        });
+    },
+
     updateMovie: function(req,res){
         var movieId = req.params.id;
         var update = req.body;
